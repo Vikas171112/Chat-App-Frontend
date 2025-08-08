@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UserCard from "./UserCard";
 
 const users = [
@@ -19,11 +19,22 @@ const users = [
   },
 ];
 
-function UserList() {
+function UserList({ setReceiver }) {
+  function handleClickUser(user) {
+    setReceiver(user);
+  }
+
   return (
     <div className="flex flex-col p-4 space-y-4">
       {users.map((user) => (
-        <UserCard key={user.id} name={user.name} image={user.image} />
+        <UserCard
+          key={user.id}
+          name={user.name}
+          image={user.image}
+          onClick={() => {
+            handleClickUser(user);
+          }}
+        />
       ))}
     </div>
   );

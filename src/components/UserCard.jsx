@@ -2,9 +2,12 @@ import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
-function UserCard({ name, image }) {
+function UserCard({ name, image, onClick }) {
   return (
-    <Card className="shadow-sm hover:bg-gray-100 cursor-pointer transition rounded-xl">
+    <Card
+      className="shadow-sm hover:bg-gray-100 cursor-pointer transition rounded-xl"
+      onClick={onClick}
+    >
       <CardContent className="flex items-center gap-4 p-4">
         <Avatar className="w-12 h-12 rounded-full overflow-hidden">
           <AvatarImage className="w-full h-full object-cover" src={image} />

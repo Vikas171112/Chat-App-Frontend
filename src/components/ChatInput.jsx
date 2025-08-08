@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 
-function ChatInput() {
+function ChatInput({ onSend }) {
   const [message, setMessage] = useState("");
 
   const handleSend = () => {
     if (!message.trim()) return;
-    console.log("Message sent:", message); // Later emit via socket
+    onSend(message);
     setMessage("");
   };
 
